@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoLAB4.Models
 {
-    public class Vinho
+    public class Garrafeira
     {
-
     }
 }
