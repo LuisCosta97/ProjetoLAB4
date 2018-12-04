@@ -7,7 +7,6 @@ namespace ProjetoLAB4.Models
 {
     public class Vinho
     {
-        //EFsadgagasrgarsgargarga
-        //asgasrgarsgarg
+       
     }
 }
