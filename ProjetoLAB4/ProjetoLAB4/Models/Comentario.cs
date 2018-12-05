@@ -10,6 +10,7 @@ namespace ProjetoLAB4.Models
     public class Comentario
     {
         [Key]
+        [Display(Name = "Data do comentário")]
         public DateTime data_comentario { get; set; }
 
         [Required(ErrorMessage = "Obrigatorio")]
