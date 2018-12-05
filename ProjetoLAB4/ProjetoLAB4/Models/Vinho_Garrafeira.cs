@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjetoLAB4.Models
 {
-    public class Vinho
+    public class Vinho_Garrafeira
     {
         [Required(ErrorMessage = "Obrigatorio")]
         public int ID { set; get; }
-
-        [Required(ErrorMessage = "Obrigatorio")]
-        [Display(Name = "Nome")]
-        [StringLength(50, MinimumLength = 1, ErrorMessage = "Não ultrapassar os limites (1-50)")]
-        public string Nome { set; get; }
 
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Regiao")]
@@ -25,13 +20,9 @@ namespace ProjetoLAB4.Models
         public int ID_Tipo { set; get; }
 
         [Required(ErrorMessage = "Obrigatorio")]
-        [Display(Name = "Produtor")]
-        public int ID_Produtor { set; get; }
-
-        [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Teor Alcoolico")]
         public float Teor_Alcoolico { set; get; }
-
+        
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Fotografia")]
         public string Caminho_Fotografia { set; get; }
