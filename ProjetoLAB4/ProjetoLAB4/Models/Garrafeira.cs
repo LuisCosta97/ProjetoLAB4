@@ -13,7 +13,7 @@ namespace ProjetoLAB4.Models
         [Display(Name = "Contacto")]
         public int ID_Contacto { set; get; }
 
-        [Key]
+        [Key] //primary
         [ForeignKey ("ID_Utilizador")]
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Utilizador")]
