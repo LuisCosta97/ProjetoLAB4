@@ -19,7 +19,7 @@ namespace ProjetoLAB4.Models
 
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Fotografia")]
-        public string Foto_path { set; get; }
+        public string Caminho_Foto { set; get; }
 
         [Key] 
         [ForeignKey ("ID_Utilizador")]
