@@ -13,7 +13,15 @@ namespace ProjetoLAB4.Models
         [Display(Name = "Contacto")]
         public int ID_Contacto { set; get; }
 
-        [Key] //primary
+        [Required(ErrorMessage = "Obrigatorio para consulta")]
+        [Display(Name = "Descrição")]
+        public string Descricao { set; get; }
+
+        [Required(ErrorMessage = "Obrigatorio")]
+        [Display(Name = "Fotografia")]
+        public string Foto_path { set; get; }
+
+        [Key] 
         [ForeignKey ("ID_Utilizador")]
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Utilizador")]
