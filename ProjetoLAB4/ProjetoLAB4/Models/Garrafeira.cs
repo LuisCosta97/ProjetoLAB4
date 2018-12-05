@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,14 @@ namespace ProjetoLAB4.Models
 {
     public class Garrafeira
     {
-        //asfdasjfjasfbjab
+        [Required(ErrorMessage = "Obrigatorio")]
+        [Display(Name = "Contacto")]
+        public int ID_Contacto { set; get; }
+
+        [Key]
+        [Required(ErrorMessage = "Obrigatorio")]
+        [Display(Name = "Utilizador")]
+        public int ID_Utilizador { set; get; }
+
     }
 }
