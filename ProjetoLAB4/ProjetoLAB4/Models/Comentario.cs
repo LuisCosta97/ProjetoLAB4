@@ -19,16 +19,20 @@ namespace ProjetoLAB4.Models
         public string Texto { set; get; }
 
         [Key] 
-        [ForeignKey("ID_Cliente")]
+        [ForeignKey("Cliente")]
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Utilizador")]
         public int ID_Cliente { set; get; }
 
         [Key]
-        [ForeignKey("ID_Vinho")]
+        [ForeignKey("Vinho")]
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Vinho")]
         public int ID_Vinho { set; get; }
+
+        public virtual Vinho Vinho { set; get; }
+
+        public virtual Utilizador Cliente { set; get; }
 
 
     }
