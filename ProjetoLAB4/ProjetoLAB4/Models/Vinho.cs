@@ -8,6 +8,7 @@ namespace ProjetoLAB4.Models
 {
     public class Vinho
     {
+        
         [Required(ErrorMessage = "Obrigatorio")]
         public int ID { set; get; }
 
@@ -45,5 +46,6 @@ namespace ProjetoLAB4.Models
         [StringLength(50, MinimumLength = 1, ErrorMessage = "Não ultrapassar os limites (1-50)")]
         public string Categoria { set; get; }
 
+        //public ICollection<Comentario> Comentario { get; set; }
     }
 }

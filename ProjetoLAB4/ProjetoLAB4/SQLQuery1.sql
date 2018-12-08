@@ -1,0 +1,135 @@
+﻿USE master
+GO
+CREATE DATABASE os3mosqueteiros
+GO
+
+CREATE TABLE Morada	 (
+		ID INTEGER NOT NULL,
+		Rua VARCHAR(500) NOT NULL,
+		Cidade VARCHAR(50) NOT NULL,
+		Cod_Postal INTEGER NOT NULL,
+		PRIMARY KEY(ID),
+		 
+);
+
+CREATE TABLE Utilizador (
+		Username VARCHAR(50) NOT NULL,
+		Estado BIT NOT NULL,
+		Password VARCHAR(50) NOT NULL,
+		Email VARCHAR(100) NOT NULL,
+		Nome VARCHAR(150) NOT NULL,
+		ID INTEGER NOT NULL,
+		ID_Morada INTEGER NOT NULL,
+		PRIMARY KEY(ID),
+		FOREIGN KEY(ID_Morada) REFERENCES Morada(ID)
+);
+
+CREATE TABLE Administrador (
+		Username VARCHAR(50) NOT NULL,
+		Password VARCHAR(50) NOT NULL,
+		Email VARCHAR(100) NOT NULL,
+		ID INTEGER NOT NULL,
+		PRIMARY KEY(ID),
+);
+
+CREATE TABLE Administrar_Utilizador (
+		ID INTEGER NOT NULL,
+		ID_Administrador INTEGER NOT NULL,
+		ID_Utilizador INTEGER NOT NULL,
+		Motivo VARCHAR(500) NOT NULL,
+		Data_Inicio DATE NOT NULL,
+		Data_Fim DATE NOT NULL,
+		Estado VARCHAR(50) NOT NULL,
+		PRIMARY KEY(ID),
+		FOREIGN KEY(ID_Administrador) REFERENCES Administrador(ID),
+		FOREIGN KEY(ID_Utilizador) REFERENCES Utilizador(ID)	
+);
+
+CREATE TABLE Contacto	 (
+		ID_Garrafeira INTEGER NOT NULL,
+		ID INTEGER NOT NULL,
+		Telefone INTEGER NOT NULL,
+		Telefone_Fixo INTEGER NOT NULL,
+		PRIMARY KEY(ID),	 
+);
+
+CREATE TABLE Garrafeira	 (
+		ID_Utilizador INTEGER NOT NULL,
+		ID_Contacto INTEGER NOT NULL,
+		Descricao VARCHAR(500) NOT NULL,
+		Fotografia VARCHAR(500) NOT NULL,
+		PRIMARY KEY(ID_Utilizador),
+		FOREIGN KEY(ID_Utilizador) REFERENCES Utilizador(ID),
+		FOREIGN KEY(ID_Contacto) REFERENCES Contacto(ID)
+		 
+);
+
+CREATE TABLE Recomencao	 (
+		ID_Envio INTEGER NOT NULL,
+		ID_Recepcao INTEGER NOT NULL,
+		Data DATE NOT NULL,
+		Estado BIT NOT NULL,
+		PRIMARY KEY(ID_Envio,ID_Recepcao,Data),
+		FOREIGN KEY(ID_Envio) REFERENCES Utilizador(ID),
+		FOREIGN KEY(ID_Recepcao) REFERENCES Utilizador(ID)
+		 
+);
+
+CREATE TABLE Regiao	 (
+		ID INTEGER NOT NULL,
+		Regiao VARCHAR(50) NOT NULL,
+		PRIMARY KEY(ID)	
+
+);
+
+CREATE TABLE Tipo	 (
+		ID INTEGER NOT NULL,
+		Tipo VARCHAR(50) NOT NULL,
+		PRIMARY KEY(ID)	
+
+);
+
+CREATE TABLE Produtor	 (
+		ID INTEGER NOT NULL,
+		Produtor VARCHAR(50) NOT NULL,
+		PRIMARY KEY(ID)	
+
+);
+
+CREATE TABLE Vinho	 (
+		ID INTEGER NOT NULL,
+		Nome VARCHAR(50) NOT NULL,
+		ID_Regiao INTEGER NOT NULL,
+		ID_Tipo INTEGER NOT NULL,
+		ID_Produtor INTEGER NOT NULL,
+		Teor_Alcool INTEGER NOT NULL,
+		Fotografia VARCHAR(500) NOT NULL,
+		Ano INTEGER NOT NULL,
+		Categoria VARCHAR(50) NOT NULL
+		PRIMARY KEY(ID),	
+		FOREIGN KEY(ID_Regiao) REFERENCES Regiao(ID),
+		FOREIGN KEY(ID_Tipo) REFERENCES Tipo(ID),
+		FOREIGN KEY(ID_Produtor) REFERENCES Produtor(ID)	 
+);
+
+CREATE TABLE Vinhos_das_Garrafeiras	 (
+		ID_Vinho INTEGER NOT NULL,
+		ID_Garrafeira INTEGER NOT NULL,
+		Descricao VARCHAR(500) NOT NULL,
+		Stock INTEGER NOT NULL,
+		Preco INTEGER NOT NULL,
+		PRIMARY KEY(ID_Vinho, ID_Garrafeira),	
+		FOREIGN KEY(ID_Vinho) REFERENCES Vinho(ID),
+		FOREIGN KEY(ID_Garrafeira) REFERENCES Garrafeira(ID_Utilizador)	 
+);
+
+CREATE TABLE Comentario	 (
+		ID_Vinho INTEGER NOT NULL,
+		ID_Cliente INTEGER NOT NULL,
+		Data DATE NOT NULL,
+		Texto VARCHAR(500) NOT NULL,
+		PRIMARY KEY(ID_Cliente, ID_Vinho, Data),
+		FOREIGN KEY(ID_Vinho) REFERENCES Vinho(ID),
+		FOREIGN KEY(ID_Cliente) REFERENCES Utilizador(ID)
+		 
+);

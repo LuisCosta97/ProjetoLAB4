@@ -1,0 +1,66 @@
+﻿@model ProjetoLAB4.Models.Vinho
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vinho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Regiao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID_Regiao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Tipo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID_Tipo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Produtor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID_Produtor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Teor_Alcoolico)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Teor_Alcoolico)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Caminho_Fotografia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Caminho_Fotografia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Categoria)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

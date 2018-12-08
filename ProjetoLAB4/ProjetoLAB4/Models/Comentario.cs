@@ -22,17 +22,19 @@ namespace ProjetoLAB4.Models
         [ForeignKey("Cliente")]
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Utilizador")]
-        public int ID_Cliente { set; get; }
+        public virtual int ID_Cliente { set; get; }
+        public virtual Utilizador Cliente { set; get; }
 
         [Key]
-        [ForeignKey("Vinho")]
+        [ForeignKey("ID_Vinho")]
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Vinho")]
-        public int ID_Vinho { set; get; }
+        public virtual int ID_Vinho { set; get; }
+        //public virtual Vinho Vinho { set; get; }
 
-        public virtual Vinho Vinho { set; get; }
+        
 
-        public virtual Utilizador Cliente { set; get; }
+
 
 
     }

@@ -43,5 +43,6 @@ namespace ProjetoLAB4.Models
         [Required(ErrorMessage = "Obrigatorio")]
         [Display(Name = "Estado")]
         public int Estado { set; get; }
+
     }
 }
