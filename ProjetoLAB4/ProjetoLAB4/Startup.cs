@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using ProjetoLAB4.Models;
 
 namespace ProjetoLAB4
 {
@@ -33,6 +35,9 @@ namespace ProjetoLAB4
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<ProjetoLAB4Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ProjetoLAB4Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
